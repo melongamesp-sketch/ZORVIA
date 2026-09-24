@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zorvia 注目コスメ10選</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Hachi+Maru+Pop&family=Klee+One:wght@400;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fbf6f0;
+    --paper-2: #f6ece4;
+    --card: #fffdfb;
+    --ink: #5a3d45;
+    --ink-soft: #8d7078;
+    --rose: #d97a93;
+    --rose-deep: #b85a74;
+    --rose-pale: #f7dfe4;
+    --blush: #fbe9ec;
+    --lilac: #e9e0f3;
+    --lilac-ink: #7e6699;
+    --butter: #fdf1c9;
+    --sage: #e4efe6;
+    --sage-ink: #4f7d62;
+    --tape: rgba(240, 190, 200, .72);
+    --tape-2: rgba(210, 196, 236, .72);
+    --tape-3: rgba(250, 226, 160, .75);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+    color: var(--ink);
+    line-height: 2;
+    font-size: 16px;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(rgba(217,122,147,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(217,122,147,.07) 1px, transparent 1px);
+    background-size: 26px 26px;
+    overflow-x: hidden;
+  }
+  .hand { font-family: "Hachi Maru Pop", cursive; }
+  .memo-font { font-family: "Klee One", serif; }
+
+  /* 手描き風マーカー */
+  .mark {
+    background: linear-gradient(100deg, transparent 2%, rgba(247,190,205,.75) 4%, rgba(247,190,205,.6) 94%, transparent 97%);
+    background-size: 100% 46%;
+    background-repeat: no-repeat;
+    background-position: 0 88%;
+    padding: 0 2px;
+  }
+  .mark.yellow {
+    background-image: linear-gradient(100deg, transparent 2%, rgba(253,222,130,.8) 4%, rgba(253,222,130,.65) 94%, transparent 97%);
+  }
+
+  /* ========== header ========== */
+  header {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 16px 30px;
+    position: relative;
+  }
+  .masthead {
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 12px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+  }
+  .logo {
+    font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 600;
+    font-size: clamp(40px, 9vw, 64px); line-height: 1; letter-spacing: 1px; color: var(--ink);
+  }
+  .issue { font-size: 12px; letter-spacing: 2px; color: var(--ink-soft); text-align: right; line-height: 1.6; }
+  .cover {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center;
+    margin-top: 34px;
+  }
+  .cover h1 {
+    font-weight: 700;
+    font-size: clamp(28px, 6vw, 46px);
+    line-height: 1.45;
+    letter-spacing: 1px;
+  }
+  .cover h1 small {
+    display: block; font-size: .42em; font-weight: 500; color: var(--rose-deep); letter-spacing: 3px;
+  }
+  .cover h1 .ten {
+    font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.7em; color: var(--rose);
+    line-height: 1; margin: 0 2px;
+  }
+  .cover-note {
+    position: relative;
+    background: var(--butter);
+    padding: 22px 20px 18px;
+    transform: rotate(2deg);
+    box-shadow: 2px 4px 10px rgba(90,61,69,.12);
+    font-family: "Klee One", serif;
+    font-size: 15px; line-height: 1.9;
+  }
+  .cover-note::before {
+    content: ""; position: absolute; top: -12px; left: 50%; width: 90px; height: 24px;
+    transform: translateX(-50%) rotate(-4deg); background: var(--tape);
+  }
+  .cover-note .hand { color: var(--rose-deep); font-size: 17px; }
+
+  /* ========== main ========== */
+  main { max-width: 880px; margin: 0 auto; padding: 0 16px 40px; }
+
+  .intro {
+    margin: 30px 0 46px;
+    padding: 30px 28px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+  }
+  .intro p + p { margin-top: 12px; }
+  .intro ul { list-style: none; margin: 10px 0 4px 6px; }
+  .intro li { padding-left: 1.4em; position: relative; }
+  .intro li::before { content: "―"; position: absolute; left: 0; color: var(--rose); }
+  .intro .go { margin-top: 18px; font-size: 19px; color: var(--rose-deep); }
+
+  /* もくじ */
+  .toc { margin-bottom: 60px; }
+  .toc h2 { font-size: 15px; letter-spacing: 4px; color: var(--ink-soft); font-weight: 500; margin-bottom: 8px; }
+  .toc ol { list-style: none; columns: 2; column-gap: 32px; }
+  .toc li { break-inside: avoid; border-bottom: 1px dashed rgba(90,61,69,.25); }
+  .toc a { display: flex; gap: 12px; align-items: baseline; padding: 6px 2px; color: var(--ink); text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: var(--rose-deep); }
+  .toc .n { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 20px; color: var(--rose); width: 26px; text-align: right; flex: none; }
+
+  /* 区切り */
+  .divider {
+    text-align: center; margin: 10px 0 56px; position: relative;
+  }
+  .divider span {
+    font-family: "Hachi Maru Pop", cursive; font-size: 22px; color: var(--rose-deep);
+    background: var(--paper); padding: 0 16px; position: relative; z-index: 1;
+  }
+  .divider::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 52%;
+    border-top: 2px dashed var(--rose-pale);
+  }
+
+  /* ========== 商品 ========== */
+  .item { margin-bottom: 76px; position: relative; }
+  .item-head { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 20px; }
+  .no {
+    font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--rose);
+    line-height: .8; flex: none; position: relative;
+  }
+  .no small { font-size: 22px; }
+  .no b { font-size: 84px; font-weight: 500; }
+  .item-head .titles { padding-bottom: 6px; }
+  .brand { font-size: 12px; letter-spacing: 3px; color: var(--ink-soft); line-height: 1.4; }
+  .item h3 { font-size: clamp(19px, 4vw, 24px); font-weight: 700; line-height: 1.5; }
+  .shade {
+    display: inline-block; margin-top: 4px;
+    font-size: 13px; color: var(--lilac-ink); background: var(--lilac);
+    padding: 0 12px; border-radius: 4px; line-height: 1.9;
+  }
+
+  .top-label {
+    position: absolute; top: -14px; right: 4px;
+    font-family: "Hachi Maru Pop", cursive; font-size: 15px; color: var(--rose-deep);
+    transform: rotate(8deg);
+  }
+  .crown { position: absolute; top: -34px; left: 6px; width: 54px; transform: rotate(-14deg); }
+
+  .item-body { display: grid; grid-template-columns: 300px 1fr; gap: 34px; align-items: start; }
+  .item.flip .item-body { grid-template-columns: 1fr 300px; }
+  .item.flip .photo { order: 2; }
+
+  /* 写真(ポラロイド風) */
+  .photo {
+    position: relative;
+    background: #fff;
+    padding: 12px 12px 42px;
+    box-shadow: 0 2px 3px rgba(90,61,69,.08), 3px 8px 18px rgba(90,61,69,.13);
+    transform: rotate(-2deg);
+  }
+  .item.flip .photo { transform: rotate(1.8deg); }
+  .photo::before {
+    content: ""; position: absolute; z-index: 2; top: -13px; left: 50%;
+    width: 96px; height: 26px; transform: translateX(-50%) rotate(-3deg);
+    background: var(--tape);
+  }
+  .item:nth-of-type(3n+1) .photo::before { background: var(--tape-2); }
+  .item:nth-of-type(3n+2) .photo::before { background: var(--tape-3); }
+  .photo .frame {
+    position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: var(--paper-2);
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo .placeholder {
+    position: absolute; inset: 0; display: none;
+    flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    text-align: center; padding: 16px;
+    border: 2px dashed rgba(217,122,147,.45);
+    color: var(--ink-soft); font-size: 12px; line-height: 1.6;
+  }
+  .photo .placeholder .hand { font-size: 16px; color: var(--rose); }
+  .photo .placeholder code { font-size: 11px; background: #fff; padding: 2px 6px; border-radius: 4px; word-break: break-all; }
+  .photo.empty img { display: none; }
+  .photo.empty .placeholder { display: flex; }
+
+  /* 画像元URL(右下) */
+  .credit {
+    position: absolute; right: 0; bottom: 0; z-index: 1;
+    max-width: 92%;
+    background: rgba(255,255,255,.88);
+    padding: 1px 8px;
+    font-size: 10px; line-height: 1.7; color: var(--ink-soft);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    border-top-left-radius: 6px;
+  }
+  .credit a { color: inherit; }
+  .credit:empty { display: none; }
+  .photo .caption {
+    position: absolute; left: 0; right: 0; bottom: 10px; text-align: center;
+    font-family: "Hachi Maru Pop", cursive; font-size: 13px; color: var(--ink-soft);
+  }
+
+  /* テキスト側 */
+  .text p { margin-bottom: 14px; }
+  .quote {
+    margin: 18px 0; padding-left: 16px; border-left: 3px solid var(--rose-pale);
+  }
+  .quote .who { font-size: 12px; color: var(--ink-soft); letter-spacing: 1px; }
+  .quote q { display: block; font-size: 19px; font-weight: 700; color: var(--rose-deep); quotes: "「" "」"; line-height: 1.6; }
+
+  .voices { display: flex; flex-wrap: wrap; gap: 14px 18px; margin: 20px 0 18px; }
+  .voices > div { flex: 1 1 200px; }
+  .voices h4 { font-size: 13px; font-weight: 500; color: var(--ink-soft); margin-bottom: 6px; letter-spacing: 1px; }
+  .voices ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+  .voices li {
+    font-size: 14px; line-height: 1.6; padding: 5px 12px;
+    border-radius: 14px 14px 14px 3px;
+  }
+  .voices .good li { background: var(--sage); color: var(--sage-ink); }
+  .voices .care li { background: var(--blush); color: var(--rose-deep); }
+  .voices .care p { font-size: 14px; background: var(--blush); color: var(--rose-deep); padding: 6px 12px; border-radius: 14px 14px 14px 3px; line-height: 1.7; }
+
+  /* Zorviaメモ(付箋) */
+  .memo {
+    position: relative;
+    font-family: "Klee One", serif; font-size: 15px; line-height: 1.85;
+    background: #fffaf0;
+    background-image: repeating-linear-gradient(transparent 0 27px, rgba(217,122,147,.18) 27px 28px);
+    padding: 14px 18px 12px 18px;
+    margin: 18px 0;
+    box-shadow: 1px 3px 8px rgba(90,61,69,.1);
+    transform: rotate(-.6deg);
+  }
+  .memo::before {
+    content: "Zorvia memo"; display: block;
+    font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 15px; color: var(--rose);
+    line-height: 1.6; margin-bottom: 2px;
+  }
+  .memo::after {
+    content: ""; position: absolute; top: -9px; right: 22px; width: 54px; height: 18px;
+    background: var(--tape-3); transform: rotate(6deg);
+  }
+
+  .forwho {
+    font-family: "Hachi Maru Pop", cursive; font-size: 15px; color: var(--rose-deep);
+    line-height: 1.8; margin-top: 16px; padding-left: 34px; position: relative;
+  }
+  .forwho svg { position: absolute; left: 0; top: 4px; width: 26px; }
+
+  /* ========== まとめ ========== */
+  .ending {
+    margin-top: 20px;
+    background: var(--card);
+    padding: 40px 30px 34px;
+    position: relative;
+    box-shadow: 2px 6px 18px rgba(90,61,69,.1);
+  }
+  .ending::before, .ending::after {
+    content: ""; position: absolute; top: -12px; width: 80px; height: 24px; background: var(--tape);
+  }
+  .ending::before { left: 20px; transform: rotate(-8deg); }
+  .ending::after { right: 20px; transform: rotate(7deg); background: var(--tape-2); }
+  .ending h2 { font-family: "Hachi Maru Pop", cursive; font-weight: 400; font-size: 24px; color: var(--rose-deep); margin-bottom: 14px; }
+  .ending p + p { margin-top: 10px; }
+  .brands { color: var(--ink-soft); letter-spacing: 1px; font-size: 14px; }
+  .checks { list-style: none; margin: 14px 0; }
+  .checks li { position: relative; padding-left: 30px; margin-bottom: 4px; }
+  .checks li svg { position: absolute; left: 0; top: 7px; width: 20px; }
+  .flow { font-weight: 700; color: var(--lilac-ink); }
+  .bigq { font-size: 21px; font-weight: 700; color: var(--rose-deep); margin: 14px 0 !important; }
+  .sign {
+    text-align: right; margin-top: 26px;
+    font-family: "Hachi Maru Pop", cursive; font-size: 17px; color: var(--ink-soft);
+  }
+  .sign span { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 30px; color: var(--rose); margin-left: 6px; }
+
+  footer {
+    max-width: 880px; margin: 0 auto; padding: 24px 16px 50px;
+    font-size: 12px; color: var(--ink-soft); line-height: 1.8;
+    border-top: 1px solid rgba(90,61,69,.2);
+  }
+
+  @media (max-width: 680px) {
+    .cover { grid-template-columns: 1fr; }
+    .cover-note { transform: rotate(1deg); max-width: 380px; }
+    .toc ol { columns: 1; }
+    .item-body, .item.flip .item-body { grid-template-columns: 1fr; gap: 26px; }
+    .item.flip .photo { order: 0; }
+    .photo { max-width: 320px; margin: 0 auto; width: 100%; }
+    .no b { font-size: 68px; }
+    .intro { padding: 24px 20px; border-radius: 18px; }
+    .ending { padding: 34px 20px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 手描き風アイコン(使い回し用) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="arrow" viewBox="0 0 40 24">
+      <path d="M2 14 C 12 6, 22 20, 34 11" fill="none" stroke="#d97a93" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M28 6 L35 11 L28 17" fill="none" stroke="#d97a93" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="check" viewBox="0 0 24 24">
+      <path d="M3 13 C 6 15, 8 18, 9 20 C 12 13, 16 8, 22 3" fill="none" stroke="#d97a93" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="masthead">
+    <div class="logo">Zorvia</div>
+    <div class="issue">COSME NOTE<br>2026 / 1st half</div>
+  </div>
+
+  <div class="cover">
+    <h1>
+      <small>2026年 上半期</small>
+      注目コスメ<span class="ten">10</span>選
+    </h1>
+    <div class="cover-note">
+      <span class="hand">「人気だから買う」</span>じゃなくて、公式の説明と口コミをちゃんと見比べてみました。<br>
+      いいところも、気になるところも、ぜんぶ書いてます。
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="intro">
+    <p>2026年上半期、SNSやコスメ界隈で注目されたアイテムの中から、今回は気になるコスメを10個ピックアップしました。</p>
+    <p>「人気だから買う」のではなく、実際の商品情報や口コミを調べて、</p>
+    <ul>
+      <li>どんな特徴があるのか</li>
+      <li>どんな評価が多いのか</li>
+      <li>そして、気になるポイントは何なのか</li>
+    </ul>
+    <p>Zorviaがまとめて紹介します。</p>
+    <p class="go hand">それでは、10位から見ていきましょう。</p>
+  </section>
+
+  <nav class="toc" aria-label="もくじ">
+    <h2>INDEX</h2>
+    <ol>
+      <li><a href="#r10"><span class="n">10</span>rom&amp;nd ベターザンパレット</a></li>
+      <li><a href="#r9"><span class="n">9</span>YSL ラブシャイン キャンディ グロウ バーム</a></li>
+      <li><a href="#r8"><span class="n">8</span>2AN デュアルチーク</a></li>
+      <li><a href="#r7"><span class="n">7</span>M·A·C ラスターガラス シアー シャイン</a></li>
+      <li><a href="#r6"><span class="n">6</span>SNIDEL BEAUTY アイデザイナー</a></li>
+      <li><a href="#r5"><span class="n">5</span>2AN ベターミー アイパレット</a></li>
+      <li><a href="#r4"><span class="n">4</span>M·A·C パウダー キス ヘイジー マット</a></li>
+      <li><a href="#r3"><span class="n">3</span>YSL ラブシャイン グロスプランパー</a></li>
+      <li><a href="#r2"><span class="n">2</span>WAKEMAKE ソフトブラーリング アイパレット</a></li>
+      <li><a href="#r1"><span class="n">1</span>RMK デューイメルト リップカラー</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ 10位 ============ -->
+  <article class="item" id="r10">
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>10</b></div>
+      <div class="titles">
+        <p class="brand">rom&amp;nd</p>
+        <h3>ベターザンパレット</h3>
+        <span class="shade">03 ローズバッドガーデン</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="10">
+        <div class="frame"><img alt="rom&amp;nd ベターザンパレット 03 ローズバッドガーデン"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">ローズ系10色</span>
+      </figure>
+      <div class="text">
+        <p>まずは、rom&amp;ndのベターザンパレット。</p>
+        <p>03 ローズバッドガーデンは、<span class="mark">ローズ系のカラーを中心とした10色パレット</span>。マット系とグリッター系のカラーが入っていて、組み合わせ次第でいろいろなピンク系メイクを作れるのが特徴です。</p>
+        <div class="voices">
+          <div class="good"><h4>口コミで多かった声</h4><ul><li>色を組み合わせやすい</li><li>ラメとマットを使い分けられる</li><li>捨て色が少ない</li></ul></div>
+          <div class="care"><h4>分かれていたところ</h4><p>ラメの使用感などは好みが分かれる部分も。</p></div>
+        </div>
+        <p class="forwho"><svg viewBox="0 0 40 24"><use href="#arrow"/></svg>ローズ系のアイメイクを楽しみたい人は、チェックしておきたいパレットです。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 9位 ============ -->
+  <article class="item flip" id="r9">
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>9</b></div>
+      <div class="titles">
+        <p class="brand">YVES SAINT LAURENT</p>
+        <h3>ラブシャイン キャンディ グロウ バーム</h3>
+        <span class="shade">ヌード ラヴァリエール</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="9">
+        <div class="frame"><img alt="YSL ラブシャイン キャンディ グロウ バーム"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">リップバーム系</span>
+      </figure>
+      <div class="text">
+        <p>続いては、YSLのラブシャイン キャンディ グロウ バーム。今回の参考資料では、ヌード ラヴァリエールが紹介されていました。</p>
+        <div class="memo">このカラーについては、現在の販売状況や商品情報をさらに確認する必要があります。購入を考えている場合は、今も販売されているカラーなのかを確認してから選ぶのがおすすめです。</div>
+        <p>商品自体は、<span class="mark">リップバーム系のアイテム</span>として紹介されているシリーズです。</p>
+        <p class="forwho"><svg viewBox="0 0 40 24"><use href="#arrow"/></svg>カラーだけでなく、今の販売状況まで確認しておきたい商品です。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 8位 ============ -->
+  <article class="item" id="r8">
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>8</b></div>
+      <div class="titles">
+        <p class="brand">2AN</p>
+        <h3>デュアルチーク</h3>
+        <span class="shade">02 ラブロージー</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="8">
+        <div class="frame"><img alt="2AN デュアルチーク 02 ラブロージー"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">2色で調整できる</span>
+      </figure>
+      <div class="text">
+        <p>8つ目は、2ANのデュアルチーク。02 ラブロージーは、<span class="mark">2色を組み合わせて使えるチーク</span>です。</p>
+        <p>1色だけで仕上げるのではなく、2色を混ぜることで色味を調整できるのがポイント。</p>
+        <div class="voices">
+          <div class="good"><h4>口コミで多かった声</h4><ul><li>2色を組み合わせやすい</li><li>発色を調整しやすい</li><li>自然な色味にしやすい</li></ul></div>
+        </div>
+        <p class="forwho"><svg viewBox="0 0 40 24"><use href="#arrow"/></svg>その日のメイクに合わせて色味を変えたい人には、使い方を考える楽しさがあるアイテムです。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 7位 ============ -->
+  <article class="item flip" id="r7">
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>7</b></div>
+      <div class="titles">
+        <p class="brand">M·A·C</p>
+        <h3>ラスターガラス シアー シャイン リップスティック</h3>
+        <span class="shade">508 ハグ ミー</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="7">
+        <div class="frame"><img alt="M·A·C ラスターガラス シアー シャイン リップスティック 508 ハグ ミー"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">シアー＆ツヤ</span>
+      </figure>
+      <div class="text">
+        <p>7つ目は、M·A·Cのラスターガラス シアー シャイン リップスティック。カラーは508 ハグ ミー。</p>
+        <div class="quote"><span class="who">公式ではこう紹介されています</span><q>ソフトで淡い温もりヌード</q></div>
+        <p><span class="mark">シアーな発色とガラスのようなツヤ感</span>が特徴のシリーズで、508 ハグ ミーもヌード系カラーとして展開されています。M·A·C公式では、このシリーズがBEST SELLERとして掲載されています。</p>
+        <div class="memo">ただし「誰にでも似合う」という意味ではありません。カラーの見え方や使用感には個人差があるので、実際の口コミと合わせて判断したいアイテムです。</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 6位 ============ -->
+  <article class="item" id="r6">
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>6</b></div>
+      <div class="titles">
+        <p class="brand">SNIDEL BEAUTY</p>
+        <h3>アイデザイナー</h3>
+        <span class="shade">参考資料では「N1」</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="6">
+        <div class="frame"><img alt="SNIDEL BEAUTY アイデザイナー"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">組み合わせて作るパレット</span>
+      </figure>
+      <div class="text">
+        <p>6つ目は、SNIDEL BEAUTYのアイデザイナー。今回の参考資料では「N1」とされていました。</p>
+        <div class="memo">今の公式サイトでは「アイデザイナー n」というシリーズが確認できます。ただ、元資料の「N1」が現在のどの商品・カラーにあたるのかは、購入前に確認しておきたいところです。</div>
+        <p>アイデザイナーシリーズは、<span class="mark">複数のカラーを組み合わせてアイメイクを作れるパレット</span>。SNIDEL BEAUTYらしい、透明感やニュアンスを意識したカラー展開も特徴のひとつです。</p>
+        <p class="forwho"><svg viewBox="0 0 40 24"><use href="#arrow"/></svg>「N1」については、カラーをしっかり特定してから選ぶのが安心です。</p>
+      </div>
+    </div>
+  </article>
+
+  <div class="divider"><span>ここからトップ5</span></div>
+
+  <!-- ============ 5位 ============ -->
+  <article class="item flip" id="r5">
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>5</b></div>
+      <div class="titles">
+        <p class="brand">2AN</p>
+        <h3>ベターミー アイパレット</h3>
+        <span class="shade">08 ブーム</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="5">
+        <div class="frame"><img alt="2AN ベターミー アイパレット 08 ブーム"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">涙袋やラインにも</span>
+      </figure>
+      <div class="text">
+        <p>5つ目は、2ANのベターミー アイパレット。カラーは08 ブーム。</p>
+        <p>コンパクトなパレットの中に、アイシャドウだけでなく、<span class="mark">ハイライトやアイライン、涙袋などにも使えるカラー</span>が入っています。ピンク系のカラーとグリッターを使った華やかなメイクにも対応。</p>
+        <div class="voices">
+          <div class="good"><h4>口コミで多かった声</h4><ul><li>カラーがかわいい</li><li>ラメがきれい</li><li>発色が良い</li></ul></div>
+          <div class="care"><h4>一方で…</h4><ul><li>思ったより発色が控えめ</li></ul></div>
+        </div>
+        <div class="memo">発色については、口コミでも評価が分かれているポイント。感じ方は人によって違うので、そこまで含めてチェックしたいアイテムです。</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 4位 ============ -->
+  <article class="item" id="r4">
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>4</b></div>
+      <div class="titles">
+        <p class="brand">M·A·C</p>
+        <h3>パウダー キス ヘイジー マット リップスティック</h3>
+        <span class="shade">912 テイケン</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="4">
+        <div class="frame"><img alt="M·A·C パウダー キス ヘイジー マット リップスティック 912 テイケン"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">パウダーみたいなマット</span>
+      </figure>
+      <div class="text">
+        <p>4つ目は、M·A·Cのパウダー キス ヘイジー マット リップスティック。カラーは912 テイケン。</p>
+        <div class="quote"><span class="who">公式ではこう紹介されています</span><q>ナチュラルに洒落る肌なじみピンキッシュベージュ</q></div>
+        <p><span class="mark">パウダーのような軽い質感</span>が特徴のマットリップで、公式のカラーガイドでは「イエベ＆ブルベ マルチカラー」とされています。</p>
+        <div class="memo">ここで注意したいのは、「どんな人にも必ず似合う」という意味ではないこと。パーソナルカラーだけで決めつけず、実際の色味や質感を見て選びたいリップです。</div>
+      </div>
+    </div>
+  </article>
+
+  <div class="divider"><span>いよいよトップ3</span></div>
+
+  <!-- ============ 3位 ============ -->
+  <article class="item flip" id="r3">
+    <span class="top-label">TOP 3</span>
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>3</b></div>
+      <div class="titles">
+        <p class="brand">YVES SAINT LAURENT</p>
+        <h3>ラブシャイン グロスプランパー</h3>
+        <span class="shade">44 ヌード ラヴァリエール</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="3">
+        <div class="frame"><img alt="YSL ラブシャイン グロスプランパー 44 ヌード ラヴァリエール"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">ミルキーピンク</span>
+      </figure>
+      <div class="text">
+        <p>3つ目は、YSLのラブシャイン グロスプランパー。カラーは44 ヌード ラヴァリエール。</p>
+        <div class="quote"><span class="who">公式ではこう紹介されています</span><q>フレンチモードなミルキーピンク</q></div>
+        <p>この商品の大きな特徴は、<span class="mark">グロスプランパーというカテゴリー</span>であること。ツヤ感のある仕上がりを楽しみたい人から注目されているアイテムです。</p>
+        <div class="memo">プランパー系のアイテムは、使用感の好みが分かれる可能性があります。特に44番は、具体的な口コミをもう少し確認してから判断したいところ。</div>
+        <p class="forwho"><svg viewBox="0 0 40 24"><use href="#arrow"/></svg>カラーだけではなく、使用感までチェックして選びたいアイテムです。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 2位 ============ -->
+  <article class="item" id="r2">
+    <span class="top-label">TOP 3</span>
+    <div class="item-head">
+      <div class="no"><small>No.</small><b>2</b></div>
+      <div class="titles">
+        <p class="brand">WAKEMAKE</p>
+        <h3>ソフトブラーリング アイパレット</h3>
+        <span class="shade">03 サンセットブラーリング</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="2">
+        <div class="frame"><img alt="WAKEMAKE ソフトブラーリング アイパレット 03 サンセットブラーリング"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">なんと16色</span>
+      </figure>
+      <div class="text">
+        <p>2つ目は、WAKEMAKEのソフトブラーリング アイパレット。03 サンセットブラーリングです。</p>
+        <p>このパレットの特徴は、なんと<span class="mark yellow">16色</span>。単色で使うだけではなく、複数のカラーを組み合わせて、いろいろなアイメイクを作れます。</p>
+        <div class="voices">
+          <div class="good"><h4>口コミで多かった声</h4><ul><li>色の組み合わせが多い</li><li>グラデーションを作りやすい</li><li>発色が良い</li><li>いろいろなメイクを楽しめる</li></ul></div>
+          <div class="care"><h4>一方で…</h4><ul><li>16色あっても全部は使わない</li><li>ラメの使用感が気になる</li></ul></div>
+        </div>
+        <div class="memo">つまり「色が多い＝全員にとって使いやすい」というわけではありません。</div>
+        <p class="forwho"><svg viewBox="0 0 40 24"><use href="#arrow"/></svg>たくさんのカラーを使い分けてメイクを楽しみたい人に、特に注目してほしいパレットです。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ 1位 ============ -->
+  <article class="item flip" id="r1">
+    <div class="item-head">
+      <div class="no">
+        <svg class="crown" viewBox="0 0 60 40" aria-hidden="true">
+          <path d="M6 32 L4 10 L18 22 L30 4 L42 22 L56 9 L53 32 Z" fill="#fde3a0" stroke="#d9a23f" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M8 36 L52 36" stroke="#d9a23f" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="30" cy="4" r="2.6" fill="#d97a93"/>
+        </svg>
+        <small>No.</small><b>1</b>
+      </div>
+      <div class="titles">
+        <p class="brand">RMK</p>
+        <h3>デューイメルト リップカラー</h3>
+        <span class="shade">03 シャイ ハート</span>
+      </div>
+    </div>
+    <div class="item-body">
+      <figure class="photo" data-rank="1">
+        <div class="frame"><img alt="RMK デューイメルト リップカラー 03 シャイ ハート"><div class="placeholder"></div><figcaption class="credit"></figcaption></div>
+        <span class="caption">ダスティピンク</span>
+      </figure>
+      <div class="text">
+        <p>そして今回紹介する最後の商品が、RMK デューイメルト リップカラー。03 シャイ ハートです。</p>
+        <div class="quote"><span class="who">RMK公式ではこう紹介されています</span><q>ダスティピンク</q></div>
+        <p>計算されたくすみによって<span class="mark">肌なじみを高め、自然な血色感</span>を意識したカラーとして説明されています。</p>
+        <div class="voices">
+          <div class="good"><h4>肯定的な声</h4><ul><li>ツヤ感が良い</li><li>色が使いやすい</li><li>普段使いしやすい</li></ul></div>
+          <div class="care"><h4>個人差を感じる声</h4><ul><li>色味が自分には合わなかった</li><li>時間が経つと乾燥を感じた</li></ul></div>
+        </div>
+        <div class="memo">「人気だから絶対に自分にも合う」わけではありません。口コミの良い部分だけではなく、気になる部分まで見ておくことが大切です。</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ まとめ ============ -->
+  <section class="ending">
+    <h2>さいごに</h2>
+    <p>今回は、2026年上半期に注目されたコスメの中から、</p>
+    <p class="brands">RMK / WAKEMAKE / YSL / M·A·C / 2AN / SNIDEL BEAUTY / rom&amp;nd</p>
+    <p>などの商品をピックアップして紹介しました。</p>
+    <p>今回いちばん伝えたかったのは、<span class="mark">「人気の商品だから買う」ではなく</span>、</p>
+    <ul class="checks">
+      <li><svg viewBox="0 0 24 24"><use href="#check"/></svg>公式ではどう説明されているのか</li>
+      <li><svg viewBox="0 0 24 24"><use href="#check"/></svg>実際の口コミではどう評価されているのか</li>
+      <li><svg viewBox="0 0 24 24"><use href="#check"/></svg>どこで意見が分かれているのか</li>
+    </ul>
+    <p>まで確認すること。</p>
+    <p>Zorviaではこれからも、話題の商品をただ紹介するのではなく、<span class="flow">情報を集めて、比較して、整理して、</span></p>
+    <p class="bigq">「結局、この商品ってどうなの？」</p>
+    <p>という疑問が分かりやすくなるように紹介していきます。</p>
+    <p>気になる商品があった人は、購入前に公式の商品情報や最新の口コミもチェックしてみてください。</p>
+    <p class="sign">それでは、また次回。<span>Zorvia</span></p>
+  </section>
+
+</main>
+
+<footer>
+  ※掲載内容は参考資料・公式情報・口コミをもとにまとめたものです。購入前に最新の商品情報をご確認ください。<br>
+  ※商品画像の権利は各画像元に帰属します。
+</footer>
+
+<script>
+/* =========================================================
+   ★ 商品画像の設定 ★
+   ここだけ書き換えればOKです。
+
+   src    … 画像ファイルの場所
+            (このHTMLと同じ場所にある「zorvia_images」フォルダに
+             画像を入れて、ファイル名を書いてください)
+   credit … 画像元のURL(写真の右下に表示されます)
+
+   画像がまだ無いときは「画像をここに」という枠が表示されます。
+   ========================================================= */
+const PRODUCT_IMAGES = {
+  10: { src: "https://c.imgz.jp/689/83973689/83973689b_38546_d_500.jpg",   credit: "https://zozo.jp/shop/cosmeremake/goods-sale/82973689/?did=171537216&utm_source=youtube&utm_medium=product_shelf&utm_term=UCY3GAhz3uFomVm5nPgMWdPw&utm_content=YT3-DJtbMY46QiRmtPzHSZQD3orgqQjuahbTWFYCSybOpsq82gsY6bNtsURyNPbSknrsSUbnJ7fhvF1lWlEFI98ARVwqbu-twBdB9VDqnw" },
+  9:  { src: "https://c.imgz.jp/185/87180185/87180185b_27658_d_500.jpg",   credit: "https://zozo.jp/shop/yvessaintlaurentbeaute/goods/86180185/?did=139808810&srsltid=AU7gw4WJpPa62ihOMH84ek51x9T01pUeqMm8E9M88AGZBkI9LfZoZJds7gM&utm_content=YT3-m0i8HyQerR1_kf5Un3hsgSEhlt-b-iOtf5yD-xZkLf0idN_NapkYTSgyOE7IYVdzwgIPwR4aMN7YxprmKPvENDa4VkfDNRcEJ9aYjQ&utm_term=UCY3GAhz3uFomVm5nPgMWdPw&utm_medium=product_shelf&utm_source=youtube" },
+  8:  { src: "https://c.imgz.jp/968/91616968/91616968b_30646_d_500.jpg",   credit: "https://zozo.jp/shop/moremo/goods/90616968/?did=146398659&srsltid=AU7gw4UjIt2zS4mvDsBx_fZM08iwYizULTv_MM8OGQwCTimHQoFuvpQzCm8&utm_content=YT3-W7w9j01TTg07qGIsH3Ulfpg17DPRUPXool2Xp58WBzMfaROOega8mahGwHCtQifANBXo9hEZBk7muwJZk0mC9zbmQQf235sGUC5Fog&utm_term=UCY3GAhz3uFomVm5nPgMWdPw&utm_medium=product_shelf&utm_source=youtube" },
+  7:  { src: "https://c.imgz.jp/590/107507590/107507590b_14903_d_500.jpg", credit: "https://zozo.jp/shop/mac/goods/106507590/?did=170528587" },
+  6:  { src: "https://c.imgz.jp/313/89698313/89698313b_30402_d_500.jpg",   credit: "https://zozo.jp/shop/snidelbeauty/goods/88698313/?did=145629861&srsltid=AU7gw4Uw_nscpdPSH47bQUu6BhWShF1d2cQHUiDlYwOsj0abt_K41gE_kyQ&utm_content=YT3-ryGcN9iXpD_jPxohXkRuC7fyh46QzehtZDtRnMFZDUFxIoUveWwUVtbItCtCfck27Tt1qkUHwuJA0KAVRuLQai4Mw-5VmrLCDVodHg&utm_term=UCY3GAhz3uFomVm5nPgMWdPw&utm_medium=product_shelf&utm_source=youtube" },
+  5:  { src: "https://c.imgz.jp/549/91616549/91616549b_30667_d_500.jpg",   credit: "https://zozo.jp/shop/moremo/goods/90616549/?did=146396985&srsltid=AU7gw4UZS1iFBZYFlUiEN5IGnd38PsVFcZTSRe0RiiPSg9kUjJSrCVaiIAk&utm_content=YT3-ZS_3lNbcGDub8mducDwJ89w2Tw8UIVwbv--jvXgZ1wehvA_59En3IIEb3t8BBgVPKMvBhbZZ_pl4xpGF2INkzXKNifEs1Zm6OZTy9g&utm_term=UCY3GAhz3uFomVm5nPgMWdPw&utm_medium=product_shelf&utm_source=youtube" },
+  4:  { src: "https://c.imgz.jp/232/101484232/101484232b_29832_d_500.jpg", credit: "https://zozo.jp/shop/mac/goods/100484232/?did=162059884" },
+  3:  { src: "https://c.imgz.jp/241/95809241/95809241b_32818_d_500.jpg",   credit: "https://zozo.jp/shop/yvessaintlaurentbeaute/goods/94809241/?did=153116007&srsltid=AU7gw4Wgu0iQlhb5KnWg-pFFOSkOzGhvhVs9eY4-q3Jku4bFAHGrs-MmxwQ&utm_content=YT3-3qJu7vXD_VQMpEGAvT-xhMtCUoWoNBHewJtTRZIaDX6LGVXqHFxuVB8gagmfIKVu69O8RsY7ZEmGty72tmwUx8oSoccDactKw0ChJw&utm_term=UCY3GAhz3uFomVm5nPgMWdPw&utm_medium=product_shelf&utm_source=youtube" },
+  2:  { src: "https://c.imgz.jp/607/97866607/97866607b_b_42_500.jpg",      credit: "https://zozo.jp/shop/oliveyoungexclusives/goods/96866607/?did=172945383&srsltid=AU7gw4Wi-FRYkwlRoN9HYV2U4wi2x2iDYB9gR04rHjAAP4vOJA9vEeTa5A0&utm_content=YT3-oVfXccot8knf61CQbVW6V8A9qJGrMyu7J9MiYAc9HLcWFSC6OEhBib6TPK6bLQmWlvPAQ8-omEKIozLlR8AaUcj2jJqAe7A90ooh5g&utm_term=UCY3GAhz3uFomVm5nPgMWdPw&utm_medium=product_shelf&utm_source=youtube" },
+  1:  { src: "https://c.imgz.jp/790/82443790/82443790b_24444_d_500.jpg",   credit: "https://zozo.jp/shop/rmk/goods/81443790/?did=132614319" },
+};
+
+document.querySelectorAll(".photo[data-rank]").forEach((fig) => {
+  const conf = PRODUCT_IMAGES[fig.dataset.rank] || {};
+  const img = fig.querySelector("img");
+  const ph = fig.querySelector(".placeholder");
+  const credit = fig.querySelector(".credit");
+
+  // 画像が無い・読み込めないときは差し込み用の枠を表示
+  ph.innerHTML = '<span class="hand">画像をここに</span><code></code>';
+  ph.querySelector("code").textContent = conf.src || "(未設定)";
+  const showEmpty = () => fig.classList.add("empty");
+  img.addEventListener("error", showEmpty);
+  img.addEventListener("load", () => fig.classList.remove("empty"));
+  if (conf.src) img.src = conf.src; else showEmpty();
+
+  // 画像元URL(右下)
+  if (conf.credit) {
+    const a = document.createElement("a");
+    a.href = conf.credit;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.textContent = conf.credit;
+    a.title = conf.credit;
+    credit.append("画像元&商品ページ：", a);
+  }
+});
+</script>
+</body>
+</html>
